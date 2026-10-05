@@ -21,6 +21,10 @@ jobs:
 
       - name: Check Flutter Plugins
         run: flutter pub deps
+      
+          - name: Find Old Android Embedding
+        run: |
+          grep -R "PluginRegistry.Registrar\|registerWith" . --exclude-dir=.git || true
 
       - name: Build APK
         run: flutter build apk --release
